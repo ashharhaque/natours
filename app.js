@@ -13,7 +13,8 @@ const helmet=require("helmet");
 const mongoSanitize=require("express-mongo-sanitize");
 const xss=require("xss-clean");
 const hpp=require("hpp");
-const cookieParser=require("cookie-parser");       
+const cookieParser=require("cookie-parser");
+const compression=require("compression");   
 const globalErrorHandler=require("./controller/errorController"); 
 //2==>middleware             
 app.set("view engine","pug");
@@ -47,6 +48,7 @@ app.use(hpp({
 "difficulty",
 "price"]
 }));
+app.use(compression());
 app.use(express.static(path.join(__dirname,"starter/public")));
 app.use((req,res,next)=>
 {  
