@@ -75,4 +75,5 @@ app.all('*',(req,res,next)=>
 app.use(globalErrorHandler);
 //6=>server starting
 
+//exporting the module
 module.exports=app;                    
